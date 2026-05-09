@@ -1,7 +1,30 @@
-.venv/
-__pycache__/
+# Build artifacts
+fonts/
 master_ufo/
 instance_ufo/
+
+# Python
+.venv/
+venv/
+__pycache__/
 *.pyc
-.DS_Store
+*.pyo
+*.pyd
+.python-version
+.uv/
+
+# Node
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project
+.gemini/
+MEMORY.md
+GEMINI.md

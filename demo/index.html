@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duyet Fonts - Preview</title>
+    <style>
+        @font-face {
+            font-family: 'Duyet Serif';
+            src: url('./fonts/duyet-serif/woff2/DuyetSerif-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Duyet Serif';
+            src: url('./fonts/duyet-serif/woff2/DuyetSerif-Italic.woff2') format('woff2');
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        :root {
+            --bg: #F5F4EF;
+            --text: #141413;
+            --accent: #D97757;
+            --secondary: #5A5A55;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 4rem 2rem;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        header {
+            margin-bottom: 6rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 2rem;
+        }
+
+        h1 {
+            font-family: 'Duyet Serif', serif;
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+
+        .section {
+            margin-bottom: 8rem;
+        }
+
+        .font-name {
+            font-family: 'Duyet Serif', serif;
+            font-size: 1.25rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Large Counter Style */
+        .counter-display {
+            font-family: 'Duyet Serif', serif;
+            font-size: 10rem;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            margin: 2rem 0;
+            font-variant-numeric: tabular-nums;
+        }
+        .counter-display span {
+            color: var(--accent);
+        }
+
+        /* Specimen Grid */
+        .specimen {
+            font-family: 'Duyet Serif', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .alphabet {
+            font-family: 'Duyet Serif', serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.05em;
+            word-break: break-all;
+            color: var(--secondary);
+        }
+
+        footer {
+            margin-top: 10rem;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Duyet Fonts</h1>
+            <p>A collection of editorial typefaces for the modern web.</p>
+        </header>
+
+        <div class="section">
+            <div class="font-name">Duyet Serif — Regular</div>
+            <div class="counter-display">12,045<span>.</span>67</div>
+            <div class="specimen">
+                The quick brown fox jumps over the lazy dog.
+            </div>
+            <div class="alphabet">
+                ABCDEFGHIJKLNMOPQRSTUVWXYZ<br>
+                abcdefghijklmnopqrstuvwxyz<br>
+                1234567890 (!@#$%^&*)
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="font-name">Duyet Serif — Italic</div>
+            <div class="specimen italic">
+                A design system is a collection of reusable components, guided by clear standards.
+            </div>
+            <div class="alphabet italic">
+                ABCDEFGHIJKLNMOPQRSTUVWXYZ<br>
+                abcdefghijklmnopqrstuvwxyz
+            </div>
+        </div>
+
+        <footer>
+            &copy; 2026 Duyet Le. Built with fontmake & GitHub Actions.
+        </footer>
+    </div>
+
+</body>
+</html>

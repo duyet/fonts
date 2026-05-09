@@ -31,11 +31,23 @@ jobs:
       - name: Test fonts
         run: make test
 
+      - name: Prepare Demo
+        run: |
+          mkdir -p demo/fonts
+          cp -r fonts/* demo/fonts/
+
       - name: Upload Build Artifacts (Preview)
         uses: actions/upload-artifact@v4
         with:
           name: duyet-fonts-preview
           path: fonts/
+
+      - name: Deploy Demo to GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: demo
+          branch: gh-pages
 
   publish:
     needs: build-and-test
