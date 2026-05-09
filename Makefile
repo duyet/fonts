@@ -1,7 +1,7 @@
 FONTS = $(shell ls sources)
 BUILD_DIR = fonts
 
-.PHONY: all build clean test $(FONTS)
+.PHONY: all build clean test widen $(FONTS)
 
 all: build
 
@@ -26,5 +26,8 @@ test:
 		uv run --with-requirements requirements.txt fontbakery check-googlefonts $$f --loglevel WARN || true; \
 	done
 
+widen:
+	uv run python3 widen_font.py
+
 clean:
-	rm -rf $(BUILD_DIR) master_ufo instance_ufo
+	rm -rf $(BUILD_DIR) deploy master_ufo instance_ufo
