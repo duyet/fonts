@@ -29,5 +29,8 @@ test:
 widen:
 	uv run python3 widen_font.py
 
+ulw:
+	bash ulw_test.sh
+
 clean:
 	rm -rf $(BUILD_DIR) deploy master_ufo instance_ufo
