@@ -10,7 +10,7 @@ A high-contrast editorial serif based on [Instrument Serif](https://github.com/I
 ## Installation
 
 ```bash
-npm install duyet-fonts
+npm install @duyet/fonts
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ npm install duyet-fonts
 Import the specific font CSS in your project:
 
 ```javascript
-import 'duyet-fonts/fonts/duyet-serif/index.css';
+import '@duyet/fonts/fonts/duyet-serif/index.css';
 ```
 
 Then use it in your CSS:
