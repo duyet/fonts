@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Duyet Fonts - Preview</title>
+    <title>Duyet Fonts - Documentation & Preview</title>
     <style>
         @font-face {
             font-family: 'Duyet Serif';
@@ -23,6 +23,7 @@
             --text: #141413;
             --accent: #D97757;
             --secondary: #5A5A55;
+            --code-bg: #EAE9E4;
         }
 
         body {
@@ -30,38 +31,75 @@
             color: var(--text);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             margin: 0;
-            padding: 4rem 2rem;
-            line-height: 1.5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 0;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 900px;
-            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
         }
 
         header {
             margin-bottom: 6rem;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
             padding-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
         }
 
-        h1 {
+        .header-title h1 {
             font-family: 'Duyet Serif', serif;
-            font-size: 3rem;
+            font-size: 4rem;
             margin: 0;
             letter-spacing: -0.02em;
+            line-height: 1;
         }
 
-        .section {
-            margin-bottom: 8rem;
+        .header-links {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 1rem;
         }
 
-        .font-name {
+        .header-links a {
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px solid var(--text);
+            padding-bottom: 2px;
+            transition: color 0.2s;
+        }
+
+        .header-links a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        section {
+            margin-bottom: 10rem;
+        }
+
+        h2 {
             font-family: 'Duyet Serif', serif;
-            font-size: 1.25rem;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 0.5rem;
+        }
+
+        .font-card {
+            background: white;
+            padding: 4rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            margin-bottom: 4rem;
+        }
+
+        .font-label {
+            font-family: 'Duyet Serif', serif;
+            font-size: 1rem;
             color: var(--secondary);
             margin-bottom: 2rem;
             text-transform: uppercase;
@@ -72,7 +110,7 @@
         .counter-display {
             font-family: 'Duyet Serif', serif;
             font-size: 10rem;
-            line-height: 1;
+            line-height: 0.9;
             letter-spacing: -0.04em;
             margin: 2rem 0;
             font-variant-numeric: tabular-nums;
@@ -81,7 +119,6 @@
             color: var(--accent);
         }
 
-        /* Specimen Grid */
         .specimen {
             font-family: 'Duyet Serif', serif;
             font-size: 2.5rem;
@@ -93,16 +130,44 @@
             font-style: italic;
         }
 
-        .alphabet {
-            font-family: 'Duyet Serif', serif;
-            font-size: 1.5rem;
-            letter-spacing: 0.05em;
-            word-break: break-all;
-            color: var(--secondary);
+        /* Documentation Styles */
+        pre {
+            background: var(--code-bg);
+            padding: 1.5rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            margin: 1.5rem 0;
+        }
+
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .doc-grid {
+                grid-template-columns: 1fr;
+            }
+            .counter-display {
+                font-size: 6rem;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2rem;
+            }
         }
 
         footer {
             margin-top: 10rem;
+            padding: 4rem 0;
+            border-top: 1px solid rgba(0,0,0,0.05);
             color: var(--secondary);
             font-size: 0.9rem;
             text-align: center;
@@ -113,36 +178,80 @@
 
     <div class="container">
         <header>
-            <h1>Duyet Fonts</h1>
-            <p>A collection of editorial typefaces for the modern web.</p>
+            <div class="header-title">
+                <h1>Duyet Fonts</h1>
+                <p>Editorial typefaces for the modern web.</p>
+            </div>
+            <div class="header-links">
+                <a href="https://github.com/duyet/fonts" target="_blank">GitHub</a>
+                <a href="https://www.npmjs.com/package/@duyet/fonts" target="_blank">NPM</a>
+            </div>
         </header>
 
-        <div class="section">
-            <div class="font-name">Duyet Serif — Regular</div>
-            <div class="counter-display">12,045<span>.</span>67</div>
-            <div class="specimen">
-                The quick brown fox jumps over the lazy dog.
+        <section id="preview">
+            <div class="font-card">
+                <div class="font-label">Duyet Serif — Specimen</div>
+                <div class="counter-display">9,120<span>.</span>84</div>
+                <div class="specimen">
+                    The intersection of data and design requires absolute typographic precision.
+                </div>
+                <div class="specimen italic">
+                    Editorial aesthetics, refined for the digital ink.
+                </div>
             </div>
-            <div class="alphabet">
-                ABCDEFGHIJKLNMOPQRSTUVWXYZ<br>
-                abcdefghijklmnopqrstuvwxyz<br>
-                1234567890 (!@#$%^&*)
-            </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <div class="font-name">Duyet Serif — Italic</div>
-            <div class="specimen italic">
-                A design system is a collection of reusable components, guided by clear standards.
+        <section id="getting-started">
+            <h2>Getting Started</h2>
+            
+            <div class="doc-grid">
+                <div>
+                    <h3>1. Installation</h3>
+                    <p>Install the package via npm or yarn:</p>
+                    <pre><code>npm install @duyet/fonts</code></pre>
+                </div>
+                
+                <div>
+                    <h3>2. Usage</h3>
+                    <p>Import the specific font's CSS in your main entry file:</p>
+                    <pre><code>import '@duyet/fonts/fonts/duyet-serif/index.css';</code></pre>
+                </div>
             </div>
-            <div class="alphabet italic">
-                ABCDEFGHIJKLNMOPQRSTUVWXYZ<br>
-                abcdefghijklmnopqrstuvwxyz
-            </div>
-        </div>
+        </section>
+
+        <section id="tailwindcss">
+            <h2>Tailwind CSS Integration</h2>
+            <p>Extend your Tailwind configuration to include the custom font family:</p>
+            
+            <pre><code>// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      fontFamily: {
+        serif: ['"Duyet Serif"', 'serif'],
+      },
+    },
+  },
+}</code></pre>
+
+            <p>Use it in your components with the standard <code>font-serif</code> class:</p>
+            <pre><code>&lt;h1 class="font-serif text-8xl tracking-tight tabular-nums"&gt;
+  1,234.56
+&lt;/h1&gt;</code></pre>
+        </section>
+
+        <section id="css-variables">
+            <h2>Standard CSS</h2>
+            <p>Apply the font directly to your elements:</p>
+            <pre><code>body {
+  font-family: 'Duyet Serif', serif;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}</code></pre>
+        </section>
 
         <footer>
-            &copy; 2026 Duyet Le. Built with fontmake & GitHub Actions.
+            &copy; 2026 Duyet Le. All fonts licensed under SIL Open Font License 1.1.
         </footer>
     </div>
 
