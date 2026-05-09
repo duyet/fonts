@@ -12,18 +12,18 @@ $(FONTS):
 	mkdir -p $(BUILD_DIR)/$@/ttf
 	mkdir -p $(BUILD_DIR)/$@/woff2
 	for f in sources/$@/*.glyphs; do \
-		uv run fontmake -g $$f -o ttf --output-dir $(BUILD_DIR)/$@/ttf; \
+		fontmake -g $$f -o ttf --output-dir $(BUILD_DIR)/$@/ttf; \
 	done
 	cp $(BUILD_DIR)/$@/ttf/*.ttf $(BUILD_DIR)/$@/woff2/
 	for f in $(BUILD_DIR)/$@/woff2/*.ttf; do \
-		uv run fonttools ttLib.woff2 compress $$f; \
+		fonttools ttLib.woff2 compress $$f; \
 		rm $$f; \
 	done
 
 test:
 	@echo "Running Fontbakery checks..."
 	for f in $(BUILD_DIR)/*/ttf/*.ttf; do \
-		uv run fontbakery check-googlefonts $$f --loglevel WARN || true; \
+		fontbakery check-googlefonts $$f --loglevel WARN || true; \
 	done
 
 clean:
