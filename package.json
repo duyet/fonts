@@ -1,0 +1,13 @@
+{
+  "name": "duyet-fonts",
+  "version": "1.0.0",
+  "description": "A collection of custom typefaces by Duyet.",
+  "files": [
+    "fonts"
+  ],
+  "license": "OFL-1.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/duyet/fonts.git"
+  }
+}

@@ -1,0 +1,24 @@
+FONTS = $(shell ls sources)
+BUILD_DIR = fonts
+
+.PHONY: all build clean $(FONTS)
+
+all: build
+
+build: $(FONTS)
+
+$(FONTS):
+	@echo "Building font: $@"
+	mkdir -p $(BUILD_DIR)/$@/ttf
+	mkdir -p $(BUILD_DIR)/$@/woff2
+	for f in sources/$@/*.glyphs; do \
+		uv run fontmake -g $$f -o ttf --output-dir $(BUILD_DIR)/$@/ttf; \
+	done
+	cp $(BUILD_DIR)/$@/ttf/*.ttf $(BUILD_DIR)/$@/woff2/
+	for f in $(BUILD_DIR)/$@/woff2/*.ttf; do \
+		uv run fonttools ttLib.woff2 compress $$f; \
+		rm $$f; \
+	done
+
+clean:
+	rm -rf $(BUILD_DIR) master_ufo instance_ufo
