@@ -298,7 +298,7 @@ layers = (
 anchors = (
 {
 name = _topright;
-pos = "(0, 0)";
+pos = (0,0);
 }
 );
 layerId = m01;
@@ -356,7 +356,7 @@ layers = (
 anchors = (
 {
 name = _bottom;
-pos = "(0, 0)";
+pos = "(-10, 0)";
 }
 );
 layerId = m01;
@@ -407,7 +407,7 @@ layers = (
 anchors = (
 {
 name = _top;
-pos = "(0, 0)";
+pos = (0,0);
 }
 );
 layerId = m01;
@@ -4208,7 +4208,7 @@ pos = (20,720);
 },
 {
 name = topright;
-pos = "(601, 450)";
+pos = (601,450);
 }
 );
 background = {
@@ -5843,7 +5843,7 @@ pos = (288,720);
 },
 {
 name = topright;
-pos = "(586, 450)";
+pos = (586,450);
 }
 );
 background = {
@@ -11402,7 +11402,7 @@ pos = (204,510);
 },
 {
 name = topright;
-pos = "(449, 450)";
+pos = (449,450);
 }
 );
 background = {
@@ -13103,7 +13103,7 @@ pos = (216,510);
 },
 {
 name = topright;
-pos = "(492, 450)";
+pos = (492,450);
 }
 );
 background = {

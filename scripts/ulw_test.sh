@@ -15,6 +15,6 @@ make test
 echo "Phase 3: Geometric consistency check (Widening & Compression)..."
 # In a real ulw swarm, this would use OCR/Visual diffs
 # For now we verify the scripts are present
-ls refine_typeface.py widen_font.py refine_contrast.py
+ls scripts/refine_typeface.py scripts/widen_font.py scripts/refine_contrast.py
 
 echo "Ultrawork: PASS. All systems operational."

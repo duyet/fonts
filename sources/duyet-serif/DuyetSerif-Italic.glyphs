@@ -301,7 +301,7 @@ layers = (
 anchors = (
 {
 name = _topright;
-pos = "(0, 0)";
+pos = (0,0);
 }
 );
 associatedMasterId = "";
@@ -360,7 +360,7 @@ layers = (
 anchors = (
 {
 name = _bottom;
-pos = "(0, 0)";
+pos = "(-10, 0)";
 }
 );
 associatedMasterId = "";
@@ -412,7 +412,7 @@ layers = (
 anchors = (
 {
 name = _top;
-pos = "(0, 0)";
+pos = (0,0);
 }
 );
 associatedMasterId = "";
@@ -4228,7 +4228,7 @@ pos = (127,720);
 },
 {
 name = topright;
-pos = "(601, 450)";
+pos = (601,450);
 }
 );
 background = {
@@ -6095,7 +6095,7 @@ pos = (396,720);
 },
 {
 name = topright;
-pos = "(588, 450)";
+pos = (588,450);
 }
 );
 background = {
@@ -11518,7 +11518,7 @@ pos = (266,510);
 },
 {
 name = topright;
-pos = "(456, 450)";
+pos = (456,450);
 }
 );
 background = {
@@ -13201,7 +13201,7 @@ pos = (293,510);
 },
 {
 name = topright;
-pos = "(554, 450)";
+pos = (554,450);
 }
 );
 background = {

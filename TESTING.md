@@ -15,9 +15,9 @@ We use `diffenator2` to compare Duyet Serif against its base (Instrument Serif) 
 
 ### 3. Agentic Design Refinement (Sisyphus Mode)
 The "Ultrawork" approach involves using AI agents to programmatically adjust glyph geometry:
-- **Widening:** Automated 15% horizontal expansion to match Anthropic Serif's grounded proportions.
-- **De-contrasting:** Programmatic thickening of hairlines and serifs for better on-screen readability.
-- **Tabularization:** Automatic enforcement of uniform widths for all digits (tabular numerals).
+- **Widening:** Automated 15% horizontal expansion to match Anthropic Serif's grounded proportions (via `scripts/widen_font.py`).
+- **De-contrasting:** Programmatic thickening of hairlines and serifs for better on-screen readability (via `scripts/refine_contrast.py`).
+- **Tabularization:** Automatic enforcement of uniform widths for all digits (via `scripts/generate_vi.py` and `scripts/fix_vi_alignment.py`).
 
 ## Tools Used
 - `fontmake`: For headless building.
