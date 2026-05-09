@@ -35,6 +35,7 @@ jobs:
         run: |
           mkdir -p demo/fonts
           cp -r fonts/* demo/fonts/
+          cp README.md demo/README.md
 
       - name: Upload Build Artifacts (Preview)
         uses: actions/upload-artifact@v4

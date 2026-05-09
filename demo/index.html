@@ -6,6 +6,9 @@
     <title>Duyet Fonts - Documentation & Preview</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>D</text></svg>">
     
+    <!-- Markdown Renderer -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
     <style>
         @font-face {
             font-family: 'Duyet Serif';
@@ -32,14 +35,15 @@
         body {
             background-color: var(--bg);
             color: var(--text);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-family: 'Duyet Serif', serif; /* APPLYING FONT TO EVERYTHING */
             margin: 0;
             padding: 0;
-            line-height: 1.5;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
@@ -54,7 +58,6 @@
         }
 
         .header-title h1 {
-            font-family: 'Duyet Serif', serif;
             font-size: 4rem;
             margin: 0;
             letter-spacing: -0.02em;
@@ -74,41 +77,13 @@
             font-weight: 500;
         }
 
-        .header-links a:hover {
-            color: var(--accent);
-            border-color: var(--accent);
-        }
-
-        section {
-            margin-bottom: 8rem;
-        }
-
-        h2 {
-            font-family: 'Duyet Serif', serif;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-        }
-
-        /* Specimen Styles */
+        /* Specimen Sheet */
         .specimen-sheet {
             background: var(--card-bg);
             padding: 3rem;
             border-radius: 12px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.04);
-            margin-bottom: 4rem;
-        }
-
-        .specimen-row {
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            padding: 2.5rem 0;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .specimen-row:last-child {
-            border-bottom: none;
+            margin-bottom: 6rem;
         }
 
         .specimen-meta {
@@ -117,57 +92,65 @@
             letter-spacing: 0.1em;
             color: var(--secondary);
             font-weight: 600;
+            margin-bottom: 1rem;
+            font-family: -apple-system, sans-serif; /* Clean sans for meta */
         }
 
         .editable {
-            font-family: 'Duyet Serif', serif;
             outline: none;
             caret-color: var(--accent);
-            transition: color 0.2s;
             font-variant-numeric: tabular-nums;
-            display: inline-block;
-            width: 100%;
+            font-size: 8rem;
+            line-height: 0.9;
+            letter-spacing: -0.04em;
         }
 
-        .editable:hover {
-            color: var(--accent);
+        .editable span { color: var(--accent); }
+
+        /* README Rendering Styles */
+        #readme-content h1, #readme-content h2, #readme-content h3 {
+            margin-top: 4rem;
+            letter-spacing: -0.01em;
+        }
+        
+        #readme-content h1 { font-size: 3.5rem; }
+        #readme-content h2 { font-size: 2.5rem; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 0.5rem; }
+        #readme-content h3 { font-size: 1.8rem; }
+
+        #readme-content p {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
         }
 
-        .editable:focus {
-            color: var(--text);
-            background: rgba(217, 119, 87, 0.03);
+        #readme-content code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            background: var(--code-bg);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-size: 0.9em;
         }
 
-        /* Sizing */
-        .size-hero { font-size: 10rem; line-height: 0.8; letter-spacing: -0.04em; }
-        .size-h1   { font-size: 5rem;  line-height: 1.1; letter-spacing: -0.02em; }
-        .size-h2   { font-size: 2.5rem; line-height: 1.2; }
-        .size-p    { font-size: 1.25rem; line-height: 1.6; max-width: 800px; }
-
-        .italic { font-style: italic; }
-
-        .accent-dot span { color: var(--accent); }
-
-        /* Docs */
-        pre {
+        #readme-content pre {
             background: var(--code-bg);
             padding: 1.5rem;
             border-radius: 8px;
             overflow-x: auto;
-            font-size: 0.85rem;
+            margin: 2rem 0;
         }
 
-        code { font-family: "SFMono-Regular", Menlo, monospace; }
+        #readme-content pre code {
+            background: transparent;
+            padding: 0;
+        }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        #readme-content a {
+            color: var(--accent);
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
-            .size-hero { font-size: 5rem; }
-            .size-h1 { font-size: 3rem; }
+            .editable { font-size: 4rem; }
+            .header-title h1 { font-size: 3rem; }
             header { flex-direction: column; align-items: flex-start; gap: 1rem; }
         }
 
@@ -186,7 +169,7 @@
         <header>
             <div class="header-title">
                 <h1>Duyet Fonts</h1>
-                <p>High-contrast editorial typefaces. Click any text below to edit.</p>
+                <p>Click any number below to test the typography.</p>
             </div>
             <div class="header-links">
                 <a href="https://github.com/duyet/fonts" target="_blank">GitHub</a>
@@ -196,77 +179,37 @@
 
         <section id="specimen">
             <div class="specimen-sheet">
-                <div class="specimen-row">
-                    <div class="specimen-meta">Hero Numbers / 160px</div>
-                    <div class="editable size-hero accent-dot" contenteditable="true">
-                        8,402<span>.</span>99
-                    </div>
-                </div>
-
-                <div class="specimen-row">
-                    <div class="specimen-meta">Headline / 80px</div>
-                    <div class="editable size-h1" contenteditable="true">
-                        Sophisticated Typography.
-                    </div>
-                </div>
-
-                <div class="specimen-row">
-                    <div class="specimen-meta">Subhead Italic / 40px</div>
-                    <div class="editable size-h2 italic" contenteditable="true">
-                        The quick brown fox jumps over the lazy dog.
-                    </div>
-                </div>
-
-                <div class="specimen-row">
-                    <div class="specimen-meta">Body / 20px</div>
-                    <div class="editable size-p" contenteditable="true">
-                        Duyet Serif is an editorial-style typeface with high contrast between thick and thin strokes. It is optimized for high-impact headings and significant data points, maintaining a refined, academic aesthetic inspired by Zen minimalism.
-                    </div>
-                </div>
-
-                <div class="specimen-row">
-                    <div class="specimen-meta">Full Alphabet</div>
-                    <div class="editable size-h2" contenteditable="true">
-                        ABCDEFGHIJKLNMOPQRSTUVWXYZ<br>
-                        abcdefghijklmnopqrstuvwxyz<br>
-                        1234567890 (!@#$%^&*)
-                    </div>
+                <div class="specimen-meta">Interactive Specimen / Tabular Numerals</div>
+                <div class="editable" contenteditable="true">
+                    12,045<span>.</span>67
                 </div>
             </div>
         </section>
 
-        <section id="docs">
-            <h2>Integration</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>1. Install</h3>
-                    <pre><code>npm install @duyet/fonts</code></pre>
-                </div>
-                <div class="card">
-                    <h3>2. Import</h3>
-                    <pre><code>import '@duyet/fonts/fonts/duyet-serif/index.css';</code></pre>
-                </div>
-            </div>
-
-            <div style="margin-top: 2rem;">
-                <h3>Tailwind CSS</h3>
-                <pre><code>// tailwind.config.js
-module.exports = {
-  theme: {
-    extend: {
-      fontFamily: {
-        serif: ['"Duyet Serif"', 'serif'],
-      },
-    },
-  },
-}</code></pre>
-            </div>
-        </section>
+        <!-- Dynamic README Content -->
+        <article id="readme-content">
+            Loading documentation...
+        </article>
 
         <footer>
             &copy; 2026 Duyet Le. All fonts licensed under SIL Open Font License 1.1.
         </footer>
     </div>
 
+    <script>
+        // Fetch and Render README.md
+        async function loadReadme() {
+            try {
+                const response = await fetch('README.md');
+                const text = await response.text();
+                // We remove the first heading from README to avoid duplication with our header
+                const cleanText = text.replace(/^# Duyet Fonts\n/, '');
+                document.getElementById('readme-content').innerHTML = marked.parse(cleanText);
+            } catch (e) {
+                document.getElementById('readme-content').innerHTML = "Error loading README.md";
+            }
+        }
+        loadReadme();
+    </script>
 </body>
 </html>
