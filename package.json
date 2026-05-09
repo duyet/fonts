@@ -2,6 +2,7 @@
   "name": "@duyet/fonts",
   "version": "1.0.0",
   "description": "A collection of custom typefaces by Duyet.",
+  "homepage": "https://duyet.github.io/fonts/",
   "files": [
     "fonts"
   ],
