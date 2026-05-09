@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duyet Fonts - Documentation & Preview</title>
-    <!-- Simple Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>D</text></svg>">
     
     <style>
-        /* CRITICAL: Adjusted paths for GitHub Pages (serving from root of gh-pages) */
         @font-face {
             font-family: 'Duyet Serif';
             src: url('./fonts/duyet-serif/woff2/DuyetSerif-Regular.woff2') format('woff2');
@@ -28,7 +26,7 @@
             --accent: #D97757;
             --secondary: #5A5A55;
             --code-bg: #EAE9E4;
-            --input-bg: #FFFFFF;
+            --card-bg: #FFFFFF;
         }
 
         body {
@@ -37,11 +35,11 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
@@ -66,7 +64,6 @@
         .header-links {
             display: flex;
             gap: 1.5rem;
-            font-size: 1rem;
         }
 
         .header-links a {
@@ -74,7 +71,7 @@
             text-decoration: none;
             border-bottom: 1px solid var(--text);
             padding-bottom: 2px;
-            transition: color 0.2s;
+            font-weight: 500;
         }
 
         .header-links a:hover {
@@ -83,123 +80,103 @@
         }
 
         section {
-            margin-bottom: 10rem;
+            margin-bottom: 8rem;
         }
 
         h2 {
             font-family: 'Duyet Serif', serif;
             font-size: 2rem;
             margin-bottom: 2rem;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            padding-bottom: 0.5rem;
+            opacity: 0.8;
         }
 
-        /* Playground Controls */
-        .controls {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            background: var(--code-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            align-items: center;
-        }
-
-        .control-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .control-group label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--secondary);
-            font-weight: bold;
-        }
-
-        input[type="text"], input[type="range"] {
-            padding: 0.5rem;
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: 4px;
-            background: var(--input-bg);
-        }
-
-        .font-card {
-            background: white;
-            padding: 4rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        /* Specimen Styles */
+        .specimen-sheet {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
             margin-bottom: 4rem;
-            min-height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
-        .font-label {
-            font-family: 'Duyet Serif', serif;
-            font-size: 1rem;
-            color: var(--secondary);
-            margin-bottom: 2rem;
+        .specimen-row {
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 2.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .specimen-row:last-child {
+            border-bottom: none;
+        }
+
+        .specimen-meta {
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            color: var(--secondary);
+            font-weight: 600;
         }
 
-        /* Interactive Specimen */
-        #interactive-specimen {
+        .editable {
             font-family: 'Duyet Serif', serif;
-            font-size: 5rem;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
             outline: none;
-            transition: font-size 0.1s, font-style 0.1s;
+            caret-color: var(--accent);
+            transition: color 0.2s;
             font-variant-numeric: tabular-nums;
+            display: inline-block;
+            width: 100%;
         }
 
-        /* Documentation Styles */
+        .editable:hover {
+            color: var(--accent);
+        }
+
+        .editable:focus {
+            color: var(--text);
+            background: rgba(217, 119, 87, 0.03);
+        }
+
+        /* Sizing */
+        .size-hero { font-size: 10rem; line-height: 0.8; letter-spacing: -0.04em; }
+        .size-h1   { font-size: 5rem;  line-height: 1.1; letter-spacing: -0.02em; }
+        .size-h2   { font-size: 2.5rem; line-height: 1.2; }
+        .size-p    { font-size: 1.25rem; line-height: 1.6; max-width: 800px; }
+
+        .italic { font-style: italic; }
+
+        .accent-dot span { color: var(--accent); }
+
+        /* Docs */
         pre {
             background: var(--code-bg);
             padding: 1.5rem;
-            border-radius: 6px;
+            border-radius: 8px;
             overflow-x: auto;
-            font-size: 0.9rem;
-            margin: 1.5rem 0;
+            font-size: 0.85rem;
         }
 
-        code {
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-        }
+        code { font-family: "SFMono-Regular", Menlo, monospace; }
 
-        .doc-grid {
+        .grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
         @media (max-width: 768px) {
-            .doc-grid {
-                grid-template-columns: 1fr;
-            }
-            #interactive-specimen {
-                font-size: 3rem !important;
-            }
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 2rem;
-            }
+            .size-hero { font-size: 5rem; }
+            .size-h1 { font-size: 3rem; }
+            header { flex-direction: column; align-items: flex-start; gap: 1rem; }
         }
 
         footer {
-            margin-top: 10rem;
+            text-align: center;
             padding: 4rem 0;
-            border-top: 1px solid rgba(0,0,0,0.05);
             color: var(--secondary);
             font-size: 0.9rem;
-            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
     </style>
 </head>
@@ -209,7 +186,7 @@
         <header>
             <div class="header-title">
                 <h1>Duyet Fonts</h1>
-                <p>Editorial typefaces for the modern web.</p>
+                <p>High-contrast editorial typefaces. Click any text below to edit.</p>
             </div>
             <div class="header-links">
                 <a href="https://github.com/duyet/fonts" target="_blank">GitHub</a>
@@ -217,50 +194,63 @@
             </div>
         </header>
 
-        <section id="playground">
-            <h2>Font Playground</h2>
-            <div class="controls">
-                <div class="control-group" style="flex: 1; min-width: 200px;">
-                    <label>Custom Text</label>
-                    <input type="text" id="text-input" placeholder="Type something..." value="8,402.99">
+        <section id="specimen">
+            <div class="specimen-sheet">
+                <div class="specimen-row">
+                    <div class="specimen-meta">Hero Numbers / 160px</div>
+                    <div class="editable size-hero accent-dot" contenteditable="true">
+                        8,402<span>.</span>99
+                    </div>
                 </div>
-                <div class="control-group">
-                    <label>Font Size (<span id="size-val">5</span>rem)</label>
-                    <input type="range" id="size-slider" min="1" max="15" step="0.5" value="5">
-                </div>
-                <div class="control-group">
-                    <label>Style</label>
-                    <select id="style-select">
-                        <option value="normal">Regular</option>
-                        <option value="italic">Italic</option>
-                    </select>
-                </div>
-            </div>
 
-            <div class="font-card">
-                <div class="font-label">Live Preview</div>
-                <div id="interactive-specimen" contenteditable="true">8,402.99</div>
+                <div class="specimen-row">
+                    <div class="specimen-meta">Headline / 80px</div>
+                    <div class="editable size-h1" contenteditable="true">
+                        Sophisticated Typography.
+                    </div>
+                </div>
+
+                <div class="specimen-row">
+                    <div class="specimen-meta">Subhead Italic / 40px</div>
+                    <div class="editable size-h2 italic" contenteditable="true">
+                        The quick brown fox jumps over the lazy dog.
+                    </div>
+                </div>
+
+                <div class="specimen-row">
+                    <div class="specimen-meta">Body / 20px</div>
+                    <div class="editable size-p" contenteditable="true">
+                        Duyet Serif is an editorial-style typeface with high contrast between thick and thin strokes. It is optimized for high-impact headings and significant data points, maintaining a refined, academic aesthetic inspired by Zen minimalism.
+                    </div>
+                </div>
+
+                <div class="specimen-row">
+                    <div class="specimen-meta">Full Alphabet</div>
+                    <div class="editable size-h2" contenteditable="true">
+                        ABCDEFGHIJKLNMOPQRSTUVWXYZ<br>
+                        abcdefghijklmnopqrstuvwxyz<br>
+                        1234567890 (!@#$%^&*)
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="getting-started">
-            <h2>Getting Started</h2>
-            <div class="doc-grid">
-                <div>
-                    <h3>1. Installation</h3>
+        <section id="docs">
+            <h2>Integration</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>1. Install</h3>
                     <pre><code>npm install @duyet/fonts</code></pre>
                 </div>
-                <div>
-                    <h3>2. Usage</h3>
+                <div class="card">
+                    <h3>2. Import</h3>
                     <pre><code>import '@duyet/fonts/fonts/duyet-serif/index.css';</code></pre>
                 </div>
             </div>
-        </section>
 
-        <section id="integration">
-            <h2>Integration Guides</h2>
-            <h3>Tailwind CSS</h3>
-            <pre><code>// tailwind.config.js
+            <div style="margin-top: 2rem;">
+                <h3>Tailwind CSS</h3>
+                <pre><code>// tailwind.config.js
 module.exports = {
   theme: {
     extend: {
@@ -270,13 +260,7 @@ module.exports = {
     },
   },
 }</code></pre>
-            
-            <h3>Standard CSS</h3>
-            <pre><code>body {
-  font-family: 'Duyet Serif', serif;
-  font-variant-numeric: tabular-nums;
-  -webkit-font-smoothing: antialiased;
-}</code></pre>
+            </div>
         </section>
 
         <footer>
@@ -284,25 +268,5 @@ module.exports = {
         </footer>
     </div>
 
-    <script>
-        const textInput = document.getElementById('text-input');
-        const sizeSlider = document.getElementById('size-slider');
-        const sizeVal = document.getElementById('size-val');
-        const styleSelect = document.getElementById('style-select');
-        const specimen = document.getElementById('interactive-specimen');
-
-        textInput.addEventListener('input', (e) => {
-            specimen.textContent = e.target.value;
-        });
-
-        sizeSlider.addEventListener('input', (e) => {
-            specimen.style.fontSize = `${e.target.value}rem`;
-            sizeVal.textContent = e.target.value;
-        });
-
-        styleSelect.addEventListener('change', (e) => {
-            specimen.style.fontStyle = e.target.value;
-        });
-    </script>
 </body>
 </html>
