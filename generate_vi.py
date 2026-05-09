@@ -1,5 +1,5 @@
 import sys
-from glyphsLib import GSFont, GSGlyph, GSComponent
+from glyphsLib import GSFont, GSGlyph, GSComponent, GSLayer
 
 def add_vi(file_path):
     print(f"Generating Vietnamese for {file_path}")
@@ -154,6 +154,8 @@ def add_vi(file_path):
         ('Ydotbelow', '1EF4', ['Y', 'dotbelowcomb']),
     ]
 
+    master_id = font.masters[0].id
+
     for name, uni, comps in vi_set:
         if name in font.glyphs:
             glyph = font.glyphs[name]
@@ -163,10 +165,20 @@ def add_vi(file_path):
         
         glyph.unicode = uni
         
+        # Ensure the glyph has a layer for the master
+        if master_id not in [l.associatedMasterId for l in glyph.layers]:
+            layer = GSLayer()
+            layer.associatedMasterId = master_id
+            glyph.layers.append(layer)
+        
         for layer in glyph.layers:
-            layer.components = []
-            for c_name in comps:
-                layer.components.append(GSComponent(c_name))
+            if layer.associatedMasterId == master_id:
+                layer.components = []
+                for c_name in comps:
+                    layer.components.append(GSComponent(c_name))
+                # Auto-align might help, but we'll manually set width to base glyph
+                base_glyph = font.glyphs[comps[0]]
+                layer.width = base_glyph.layers[master_id].width
             
     font.save()
 
