@@ -2,13 +2,12 @@
 
 A collection of custom typefaces and editorial-style fonts.
 
+**Live Demo:** [https://duyet.github.io/fonts/](https://duyet.github.io/fonts/)
+
 ## Fonts Included
 
 ### 1. Duyet Serif
 A high-contrast editorial serif based on [Instrument Serif](https://github.com/Instrument/instrument-serif). Optimized for data-heavy projects, high-impact headings, and a Zen aesthetic.
-
-## Live Demo
-Check out the fonts in action: [https://duyet.github.io/fonts/](https://duyet.github.io/fonts/)
 
 ## Installation
 
