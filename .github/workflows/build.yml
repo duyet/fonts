@@ -31,11 +31,13 @@ jobs:
       - name: Test fonts
         run: uv run --with-requirements requirements.txt make test
 
-      - name: Prepare Demo
+      - name: Prepare Deployment
         run: |
-          mkdir -p demo/fonts
-          cp -r fonts/* demo/fonts/
-          cp README.md demo/README.md
+          mkdir -p deploy/fonts
+          cp -r fonts/* deploy/fonts/
+          cp index.html deploy/index.html
+          cp README.md deploy/README.md
+          touch deploy/.nojekyll
 
       - name: Upload Build Artifacts (Preview)
         uses: actions/upload-artifact@v4
@@ -43,11 +45,11 @@ jobs:
           name: duyet-fonts-preview
           path: fonts/
 
-      - name: Deploy Demo to GitHub Pages
+      - name: Deploy to GitHub Pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: demo
+          folder: deploy
           branch: gh-pages
 
   publish:

@@ -1,5 +1,6 @@
 # Build artifacts
 fonts/
+deploy/
 master_ufo/
 instance_ufo/
 
