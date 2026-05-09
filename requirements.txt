@@ -1,2 +1,3 @@
 fontmake
 gftools
+fontbakery[googlefonts]

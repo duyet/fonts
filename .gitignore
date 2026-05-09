@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+master_ufo/
+instance_ufo/
+*.pyc
+.DS_Store
+node_modules/

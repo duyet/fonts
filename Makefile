@@ -1,7 +1,7 @@
 FONTS = $(shell ls sources)
 BUILD_DIR = fonts
 
-.PHONY: all build clean $(FONTS)
+.PHONY: all build clean test $(FONTS)
 
 all: build
 
@@ -18,6 +18,12 @@ $(FONTS):
 	for f in $(BUILD_DIR)/$@/woff2/*.ttf; do \
 		uv run fonttools ttLib.woff2 compress $$f; \
 		rm $$f; \
+	done
+
+test:
+	@echo "Running Fontbakery checks..."
+	for f in $(BUILD_DIR)/*/ttf/*.ttf; do \
+		uv run fontbakery check-googlefonts $$f --loglevel WARN || true; \
 	done
 
 clean:
