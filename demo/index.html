@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duyet Fonts - Documentation & Preview</title>
+    <!-- Simple Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>D</text></svg>">
+    
     <style>
+        /* CRITICAL: Adjusted paths for GitHub Pages (serving from root of gh-pages) */
         @font-face {
             font-family: 'Duyet Serif';
             src: url('./fonts/duyet-serif/woff2/DuyetSerif-Regular.woff2') format('woff2');
@@ -24,6 +28,7 @@
             --accent: #D97757;
             --secondary: #5A5A55;
             --code-bg: #EAE9E4;
+            --input-bg: #FFFFFF;
         }
 
         body {
@@ -42,7 +47,7 @@
         }
 
         header {
-            margin-bottom: 6rem;
+            margin-bottom: 4rem;
             border-bottom: 1px solid rgba(0,0,0,0.05);
             padding-bottom: 2rem;
             display: flex;
@@ -89,12 +94,49 @@
             padding-bottom: 0.5rem;
         }
 
+        /* Playground Controls */
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background: var(--code-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .control-group label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="range"] {
+            padding: 0.5rem;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 4px;
+            background: var(--input-bg);
+        }
+
         .font-card {
             background: white;
             padding: 4rem;
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
             margin-bottom: 4rem;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .font-label {
@@ -106,28 +148,15 @@
             letter-spacing: 0.1em;
         }
 
-        /* Large Counter Style */
-        .counter-display {
+        /* Interactive Specimen */
+        #interactive-specimen {
             font-family: 'Duyet Serif', serif;
-            font-size: 10rem;
-            line-height: 0.9;
-            letter-spacing: -0.04em;
-            margin: 2rem 0;
+            font-size: 5rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            outline: none;
+            transition: font-size 0.1s, font-style 0.1s;
             font-variant-numeric: tabular-nums;
-        }
-        .counter-display span {
-            color: var(--accent);
-        }
-
-        .specimen {
-            font-family: 'Duyet Serif', serif;
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-
-        .italic {
-            font-style: italic;
         }
 
         /* Documentation Styles */
@@ -154,8 +183,8 @@
             .doc-grid {
                 grid-template-columns: 1fr;
             }
-            .counter-display {
-                font-size: 6rem;
+            #interactive-specimen {
+                font-size: 3rem !important;
             }
             header {
                 flex-direction: column;
@@ -188,41 +217,49 @@
             </div>
         </header>
 
-        <section id="preview">
+        <section id="playground">
+            <h2>Font Playground</h2>
+            <div class="controls">
+                <div class="control-group" style="flex: 1; min-width: 200px;">
+                    <label>Custom Text</label>
+                    <input type="text" id="text-input" placeholder="Type something..." value="8,402.99">
+                </div>
+                <div class="control-group">
+                    <label>Font Size (<span id="size-val">5</span>rem)</label>
+                    <input type="range" id="size-slider" min="1" max="15" step="0.5" value="5">
+                </div>
+                <div class="control-group">
+                    <label>Style</label>
+                    <select id="style-select">
+                        <option value="normal">Regular</option>
+                        <option value="italic">Italic</option>
+                    </select>
+                </div>
+            </div>
+
             <div class="font-card">
-                <div class="font-label">Duyet Serif — Specimen</div>
-                <div class="counter-display">9,120<span>.</span>84</div>
-                <div class="specimen">
-                    The intersection of data and design requires absolute typographic precision.
-                </div>
-                <div class="specimen italic">
-                    Editorial aesthetics, refined for the digital ink.
-                </div>
+                <div class="font-label">Live Preview</div>
+                <div id="interactive-specimen" contenteditable="true">8,402.99</div>
             </div>
         </section>
 
         <section id="getting-started">
             <h2>Getting Started</h2>
-            
             <div class="doc-grid">
                 <div>
                     <h3>1. Installation</h3>
-                    <p>Install the package via npm or yarn:</p>
                     <pre><code>npm install @duyet/fonts</code></pre>
                 </div>
-                
                 <div>
                     <h3>2. Usage</h3>
-                    <p>Import the specific font's CSS in your main entry file:</p>
                     <pre><code>import '@duyet/fonts/fonts/duyet-serif/index.css';</code></pre>
                 </div>
             </div>
         </section>
 
-        <section id="tailwindcss">
-            <h2>Tailwind CSS Integration</h2>
-            <p>Extend your Tailwind configuration to include the custom font family:</p>
-            
+        <section id="integration">
+            <h2>Integration Guides</h2>
+            <h3>Tailwind CSS</h3>
             <pre><code>// tailwind.config.js
 module.exports = {
   theme: {
@@ -233,16 +270,8 @@ module.exports = {
     },
   },
 }</code></pre>
-
-            <p>Use it in your components with the standard <code>font-serif</code> class:</p>
-            <pre><code>&lt;h1 class="font-serif text-8xl tracking-tight tabular-nums"&gt;
-  1,234.56
-&lt;/h1&gt;</code></pre>
-        </section>
-
-        <section id="css-variables">
-            <h2>Standard CSS</h2>
-            <p>Apply the font directly to your elements:</p>
+            
+            <h3>Standard CSS</h3>
             <pre><code>body {
   font-family: 'Duyet Serif', serif;
   font-variant-numeric: tabular-nums;
@@ -255,5 +284,25 @@ module.exports = {
         </footer>
     </div>
 
+    <script>
+        const textInput = document.getElementById('text-input');
+        const sizeSlider = document.getElementById('size-slider');
+        const sizeVal = document.getElementById('size-val');
+        const styleSelect = document.getElementById('style-select');
+        const specimen = document.getElementById('interactive-specimen');
+
+        textInput.addEventListener('input', (e) => {
+            specimen.textContent = e.target.value;
+        });
+
+        sizeSlider.addEventListener('input', (e) => {
+            specimen.style.fontSize = `${e.target.value}rem`;
+            sizeVal.textContent = e.target.value;
+        });
+
+        styleSelect.addEventListener('change', (e) => {
+            specimen.style.fontStyle = e.target.value;
+        });
+    </script>
 </body>
 </html>
