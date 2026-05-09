@@ -96,16 +96,65 @@
             font-family: -apple-system, sans-serif; /* Clean sans for meta */
         }
 
+        .editable-block {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+            padding-bottom: 2rem;
+        }
+
+        .editable-block:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
         .editable {
             outline: none;
             caret-color: var(--accent);
+            transition: color 0.2s;
+        }
+
+        .editable:focus {
+            background: rgba(217, 119, 87, 0.02);
+        }
+
+        .size-hero {
             font-variant-numeric: tabular-nums;
             font-size: 8rem;
             line-height: 0.9;
             letter-spacing: -0.04em;
         }
 
-        .editable span { color: var(--accent); }
+        .size-h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+
+        .size-p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin: 0;
+            max-width: 700px;
+        }
+
+        .size-list {
+            font-size: 1.5rem;
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .size-quote {
+            font-size: 2.5rem;
+            line-height: 1.3;
+            font-style: italic;
+            border-left: 4px solid var(--accent);
+            padding-left: 2rem;
+            margin: 0;
+        }
+
+        .accent-dot span { color: var(--accent); }
 
         /* README Rendering Styles */
         #readme-content h1, #readme-content h2, #readme-content h3 {
@@ -118,6 +167,11 @@
         #readme-content h3 { font-size: 1.8rem; }
 
         #readme-content p {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #readme-content ul, #readme-content ol {
             font-size: 1.25rem;
             margin-bottom: 1.5rem;
         }
@@ -149,7 +203,9 @@
         }
 
         @media (max-width: 768px) {
-            .editable { font-size: 4rem; }
+            .size-hero { font-size: 4rem; }
+            .size-h1 { font-size: 2.5rem; }
+            .size-p, .size-list, .size-quote { font-size: 1.2rem; }
             .header-title h1 { font-size: 3rem; }
             header { flex-direction: column; align-items: flex-start; gap: 1rem; }
         }
@@ -169,7 +225,7 @@
         <header>
             <div class="header-title">
                 <h1>Duyet Fonts</h1>
-                <p>Click any number below to test the typography.</p>
+                <p>Click any text block below to test the typography.</p>
             </div>
             <div class="header-links">
                 <a href="https://github.com/duyet/fonts" target="_blank">GitHub</a>
@@ -179,10 +235,45 @@
 
         <section id="specimen">
             <div class="specimen-sheet">
-                <div class="specimen-meta">Interactive Specimen / Tabular Numerals</div>
-                <div class="editable" contenteditable="true">
-                    12,045<span>.</span>67
+                
+                <div class="editable-block">
+                    <div class="specimen-meta">Hero Numbers / Tabular Numerals</div>
+                    <div class="editable size-hero accent-dot" contenteditable="true">
+                        12,045<span>.</span>67
+                    </div>
                 </div>
+
+                <div class="editable-block">
+                    <div class="specimen-meta">Editorial Headline</div>
+                    <h2 class="editable size-h1" contenteditable="true">
+                        Sophisticated design requires absolute typographic precision.
+                    </h2>
+                </div>
+
+                <div class="editable-block">
+                    <div class="specimen-meta">Body Paragraph / Regular</div>
+                    <p class="editable size-p" contenteditable="true">
+                        Duyet Serif is an editorial-style typeface with high contrast between thick and thin strokes. It is optimized for high-impact headings and significant data points, maintaining a refined, academic aesthetic inspired by Zen minimalism.
+                    </p>
+                </div>
+
+                <div class="editable-block">
+                    <div class="specimen-meta">Blockquote / Italic</div>
+                    <blockquote class="editable size-quote" contenteditable="true">
+                        "Typography is the craft of endowing human language with a durable visual form."
+                    </blockquote>
+                </div>
+
+                <div class="editable-block">
+                    <div class="specimen-meta">List Style</div>
+                    <ul class="editable size-list" contenteditable="true">
+                        <li>Tabular numerals for data accuracy</li>
+                        <li>High-contrast editorial aesthetics</li>
+                        <li>Optimized for modern digital reading</li>
+                        <li>Zen-inspired minimalist serifs</li>
+                    </ul>
+                </div>
+
             </div>
         </section>
 
