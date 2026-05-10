@@ -1,5 +1,3 @@
-import re
-
 def inject_mark(file_path, name, unicode_hex, nodes):
     print(f"Injecting {name} into {file_path}")
     with open(file_path, 'r') as f:
