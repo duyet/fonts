@@ -5,6 +5,10 @@ def inject_mark(file_path, name, unicode_hex, nodes):
     with open(file_path, 'r') as f:
         content = f.read()
 
+    if f"glyphname = {name};" in content:
+        print(f"Glyph {name} already exists in {file_path}. Skipping.")
+        return
+
     # Glyph template
     glyph_template = f"""{{
 glyphname = {name};
