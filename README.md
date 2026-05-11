@@ -4,10 +4,18 @@ A collection of custom typefaces and editorial-style fonts.
 
 **Live Demo:** [https://duyet.github.io/fonts/](https://duyet.github.io/fonts/)
 
+## Preview
+
+![Duyet Serif Specimen](duyet-serif-specimen.png)
+
 ## Fonts Included
 
 ### 1. Duyet Serif
 A high-contrast editorial serif based on [Instrument Serif](https://github.com/Instrument/instrument-serif). Optimized for data-heavy projects, high-impact headings, and a Zen aesthetic.
+
+- **Proportions**: Widen +15%, Shorten -15% for grounded readability
+- **Language support**: Latin extended + full Vietnamese (Ăă, Đđ, Ĩĩ, Ũũ, Ơơ, Ưư + tones)
+- **Features**: ligatures, small caps, case-sensitive forms, localized forms (Catalan, Romanian, Turkish, etc.)
 
 ## Installation
 
@@ -44,11 +52,44 @@ make build
 
 # Build a specific font
 make duyet-serif
+
+# Run fontbakery quality checks
+make test
+
+# Widen glyphs by 15%
+make widen
 ```
 
-## Structure
-- `sources/<font-name>/`: Font source files (e.g., `.glyphs`).
-- `fonts/<font-name>/`: Compiled `.ttf` and `.woff2` files.
+## Repository Structure
+
+```
+├── fonts/                    # Compiled output (.ttf, .woff2)
+│   └── duyet-serif/
+│       ├── ttf/
+│       └── woff2/
+├── sources/                  # Font source files (.glyphs)
+│   └── duyet-serif/
+├── scripts/                  # Build & automation scripts
+│   ├── generate_vi.py        # Generate Vietnamese glyphs
+│   ├── inject_vi.py          # Inject combining marks
+│   ├── add_anchors.py        # Add mark anchors
+│   ├── fix_vi_alignment.py   # Fix VI diacritic alignment
+│   ├── fix_metrics.py        # Fix vertical metrics for GF
+│   ├── set_metrics.py        # Set source metrics
+│   ├── widen_font.py         # Widen glyphs
+│   ├── refine_typeface.py    # Refine vertical proportions
+│   ├── refine_contrast.py    # Optical contrast refinement
+│   ├── extract_nodes.py      # Extract node data from fonts
+│   ├── check_glyphs.py       # Check glyph coverage
+│   └── CustomFilterGF_Latin_Vietnamese.plist
+├── deploy/                   # GitHub Pages deployment
+├── index.html                # Interactive specimen sheet
+├── LICENSE                   # SIL Open Font License 1.1
+├── Makefile                  # Build automation
+├── package.json              # NPM package config
+├── requirements.txt          # Python dependencies
+└── README.md                 # This file
 
 ## License
-Licensed under the [SIL Open Font License 1.1](OFL.txt).
+
+Licensed under the [SIL Open Font License 1.1](LICENSE).
